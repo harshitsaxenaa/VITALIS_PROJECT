@@ -51,9 +51,12 @@ Follow these steps to run the code on your local system:
    ```bash
    python main.py
 
-7. open dashboards:
+7. Open dashboards:
    ```bash
    streamlit run streamlit_app.py
+   ```bash
    streamlit run ambulance_dashboard.py
+   ```bash
    streamlit run nearby_help_page.py
+   ```bash
    streamlit run 3_Accident_Alert_and_Hospitals.py
