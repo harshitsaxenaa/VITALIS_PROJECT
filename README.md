@@ -25,4 +25,35 @@ VITALIS is a real-time accident detection and emergency response system based on
 6. Crowd-Aid Prompt: Instant notification to nearby civilians willing to help (Also for people planning to travel via same route.
 
 ## Steps to run:
+Follow these steps to run the code on your local system:
 
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/harshitsaxenaa/VITALIS_PROJECT.git
+
+2. Change directory:
+   ```bash
+   cd VITALIS_PROJECT
+
+3. Create virtual environment:
+   ```bash
+   python -m venv venv
+
+4. Activate virtual environment:
+   ```bash
+   venv\Scripts\activate
+
+5. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+
+6. Run scripts:
+   ```bash
+   python main.py
+
+7. open dashboards:
+   ```bash
+   streamlit run streamlit_app.py
+   streamlit run ambulance_dashboard.py
+   streamlit run nearby_help_page.py
+   streamlit run 3_Accident_Alert_and_Hospitals.py
