@@ -7,9 +7,8 @@ import json
 
 st.set_page_config(page_title="Nearby Hospitals & Alerts", layout="wide")
 
-st.title("🏥 Accident Alert & Nearby Hospitals")
+st.title("Accident Alert & Nearby Hospitals")
 
-# Step 1: Get latest accident location
 try:
     with open("logs/severity_log.json", "r") as f:
         data = json.load(f)
@@ -22,9 +21,8 @@ except:
     st.error("Unable to load accident data.")
     st.stop()
 
-st.subheader(f"⚠️ Accident-prone Zone: {location}")
+st.subheader(f"Accident-prone Zone: {location}")
 
-# Step 2: Show map with red alert marker
 m = folium.Map(location=[lat, lon], zoom_start=14)
 folium.Marker(
     location=[lat, lon],
@@ -32,7 +30,6 @@ folium.Marker(
     icon=folium.Icon(color="red", icon="warning-sign")
 ).add_to(m)
 
-# Step 3: Find nearby hospitals using Nominatim (OpenStreetMap)
 with st.spinner("Fetching nearby hospitals..."):
     try:
         url = f"https://nominatim.openstreetmap.org/search?format=json&q=hospital&limit=10&bounded=1&viewbox={lon-0.02},{lat+0.02},{lon+0.02},{lat-0.02}"
@@ -57,5 +54,4 @@ with st.spinner("Fetching nearby hospitals..."):
     except Exception as e:
         st.error(f"Error fetching hospitals: {e}")
 
-# Step 4: Display map
 st_folium(m, width=1000, height=500)
