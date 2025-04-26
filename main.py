@@ -108,12 +108,10 @@ while cap.isOpened():
 cap.release()
 cv2.destroyAllWindows()
 
-# Final sticky logic: if detected at least once, mark as Yes
 for label, count in detected_once.items():
     if count > 0:
         update_detection(session_id, label)
 
-# End session and calculate final severity
 end_session(session_id)
 
 g = geocoder.ip('me')
